@@ -1,0 +1,55 @@
+.lnb {
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &-list {
+    @include inline-flexbox(start);
+    position: relative;
+    left: -8px;
+    flex-wrap: nowrap;
+    width: max-content;
+  }
+  &-item {
+    &.is-active {
+      a {
+        color: $blue;
+        border-bottom: 2px solid $blue;
+      }
+    }
+
+    a {
+      @include inline-flexbox; // 자신이 갖고있는 컨텐츠만큼 width 차지
+      @include text-style(13, $dark);
+      height: 40px;
+      padding: 0 8px;
+      font-weight: 700;
+    }
+
+    .ic-new {
+      color: $red;
+    }
+  }
+}
+
+// .lnb {
+//   border-bottom: 1px solid $border;
+//   &-list {
+//     @include flexbox(start);
+//     height: 40px;
+//     overflow-x: scroll;
+
+//     &::-webkit-scrollbar {
+//       display: none;
+//     }
+//   }
+
+//   &-item {
+//     @include text-style(13, $dark);
+//     font-weight: 700;
+//     flex-shrink: 0;
+//     padding: 10px 8px;
+//   }
+// }
