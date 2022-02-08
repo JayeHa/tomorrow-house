@@ -23,19 +23,16 @@ function toggleOrderCtaBookmark() {
   const count = Number(countSpan.innerHTML.replaceAll(',', ''))
 
   let newCount = count
-
   if (this.classList.contains('is-active')) {
-    icon.classList.add('ic-bookmark')
-    icon.classList.remove('ic-bookmark-filled')
     newCount = newCount - 1
   } else {
-    icon.classList.add('ic-bookmark-filled')
-    icon.classList.remove('ic-bookmark')
     newCount = newCount + 1
   }
 
   countSpan.innerHTML = newCount.toLocaleString()
-
+  countSpan.setAttribute('aria-label', `북마크 ${newCount.toLocaleString()}회`)
+  icon.classList.toggle('ic-bookmark')
+  icon.classList.toggle('ic-bookmark-filled')
   this.classList.toggle('is-active')
 }
 
